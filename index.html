@@ -1,36 +1,56 @@
-    <!DOCTYPE html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Домашнее задание – Has</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
     <div class="wrapper">
         <div class="container">
-            <h1 class="wrapper__title">Как работает <span class="wrapper__accent-color">:has()</span> в <span
-                    class="wrapper__accent">scss</span></h1>
+            <h1 class="wrapper__title">
+                Как работает
+                <span class="wrapper__accent-color">:has()</span>
+                в
+                <span class="wrapper__accent">scss</span>
+            </h1>
             <p class="wrapper__subtitle">
-                Селектор <span class="wrapper__accent-color">:has() </span> позволяет выбирать родительский элемент, опираясь на содержимое
-                    внутри него. <br> Это помогает создавать гибкие и чистые стили без дополнительных классов в разметке. <br>
-                    В этом задании ты применишь <span class="wrapper__accent-color">:has()</span> для стилизации карточки.
-                </span>
+                Селектор
+                <span class="wrapper__accent-color">:has()</span>
+                позволяет выбирать родительский элемент,
+                опираясь на содержимое внутри него.
+                <br>
+                Это помогает создавать гибкие и чистые стили
+                без дополнительных классов в разметке.
+                <br>
+                В этом задании ты применишь
+                <span class="wrapper__accent-color">:has()</span>
+                для стилизации карточки.
             </p>
-
             <div class="wrapper__inner">
                 <div class="wrapper__exercise">
                     <div class="wrapper__titles">
-                        <div class="wrapper__item">SVG</div>
-                        <div class="wrapper__item"><span class="wrapper__accent-color wrapper__accent">Задание</span></div>
+                        <div class="wrapper__item">
+                            SVG
+                        </div>
+                        <div class="wrapper__item">
+                            <span class="wrapper__accent-color wrapper__accent">
+                                Задание
+                            </span>
+                        </div>
                     </div>
+
+                    <p class="wrapper__subtitle">
+                        Стилизуй карточку так, чтобы если внутри неё есть &lt;p&gt;, она
+                        получила фиолетовую рамку
+                    </p>
+
                 </div>
                 <div class="wrapper__result"></div>
-            </div> 
+            </div>
         </div>
     </div>
+    <script type="module" src="script.js"></script>
 </body>
-
 </html>

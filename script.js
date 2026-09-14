@@ -5,6 +5,7 @@ import { css } from "https://esm.sh/@codemirror/lang-css";
 
 function showCode(selector, code, language = "html") {
     const block = document.querySelector(selector);
+
     if (!block) {
         console.error(`Элемент ${selector} не найден`);
         return;
@@ -13,6 +14,7 @@ function showCode(selector, code, language = "html") {
     const languageMode = language === "css"
         ? css()
         : html();
+
     new EditorView({
         state: EditorState.create({
             doc: code,
@@ -21,6 +23,17 @@ function showCode(selector, code, language = "html") {
                 languageMode,
                 // Только просмотр
                 EditorView.editable.of(false),
+                // Запрещаем выделение мышкой
+                EditorView.domEventHandlers({
+                    mousedown: (event) => {
+                        event.preventDefault();
+                        return true;
+                    },
+                    selectstart: (event) => {
+                        event.preventDefault();
+                        return true;
+                    }
+                }),
                 // Стили CodeMirror
                 EditorView.theme({
                     "&": {
@@ -28,31 +41,31 @@ function showCode(selector, code, language = "html") {
                         color: "#c9d1d9",
                         fontSize: "15px",
                         borderRadius: "14px",
+                        userSelect: "none",
+                        WebkitUserSelect: "none",
                     },
-
                     ".cm-content": {
                         padding: "20px 0",
+                        userSelect: "none",
+                        WebkitUserSelect: "none",
                     },
-
                     ".cm-gutters": {
                         backgroundColor: "#0a0e18",
                         color: "#4b5568",
                         border: "none",
                         paddingRight: "10px",
+                        userSelect: "none",
+                        WebkitUserSelect: "none",
                     },
-
                     ".cm-line": {
                         padding: "0 20px",
                     },
-
                     ".cm-scroller": {
                         overflow: "auto",
                     },
-
                     ".cm-activeLine": {
                         backgroundColor: "rgba(255, 255, 255, 0.025)",
                     },
-
                     ".cm-activeLineGutter": {
                         backgroundColor: "transparent",
                     }
@@ -119,7 +132,7 @@ function addCopyButton(selector, code) {
 }
 
 showCode(
-    ".wrapper__result",
+    ".wrapper__html-code",
 
     `<div class="card">
     <h3>Заголовок карточки</h3>
@@ -130,7 +143,7 @@ showCode(
 );
 
 addCopyButton(
-    ".wrapper__result",
+    ".wrapper__html-code",
 
     `<div class="card">
     <h3>Заголовок карточки</h3>
